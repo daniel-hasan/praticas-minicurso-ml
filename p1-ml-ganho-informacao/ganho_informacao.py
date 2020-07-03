@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def entropia(df_dados:pd.Dataframe, nom_col_classe:str) -> float:
+def entropia(df_dados:pd.DataFrame, nom_col_classe:str) -> float:
     """
         Calcula a entropia de acordo com df_dados (DataFrame) e a classe. Use a função math.log com
         o log na base 2. Não esqueça de importar o módulo math.
@@ -25,7 +25,7 @@ def entropia(df_dados:pd.Dataframe, nom_col_classe:str) -> float:
     return entropia
 
 
-def ganho_informacao_condicional(df_dados: pd.Dataframe, val_entropia_y:float, nom_col_classe:str, nom_atributo:str, val_atributo:float) ->float:
+def ganho_informacao_condicional(df_dados: pd.DataFrame, val_entropia_y:float, nom_col_classe:str, nom_atributo:str, val_atributo:float) ->float:
     """
     Calcula o GI(Y|nom_atributo=val_atributo), ou seja,
     calcula o ganho de informação do atributo 'nom_atributo' quando ele assume o valor 'val_atributo'.
@@ -54,7 +54,7 @@ def ganho_informacao_condicional(df_dados: pd.Dataframe, val_entropia_y:float, n
     return val_gi
 
 
-def ganho_informacao(df_dados:pd.Dataframe, nom_col_classe:str, nom_atributo:str) -> float:
+def ganho_informacao(df_dados:pd.DataFrame, nom_col_classe:str, nom_atributo:str) -> float:
     """
         Calcula GI(Y| nom_atributo), ou seja, o ganho de informação do atributo nom_atributo.
 

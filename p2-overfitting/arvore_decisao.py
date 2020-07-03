@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from typing import Tuple
-def cria_modelo(X:pd.Dataframe ,y:pd.Series ,min_samples_split:float):
+def cria_modelo(X:pd.DataFrame ,y:pd.Series ,min_samples_split:float):
     """
         Retorna o modelo a ser usado.
 
@@ -21,7 +21,7 @@ def cria_modelo(X:pd.Dataframe ,y:pd.Series ,min_samples_split:float):
     #retone o modelo por meio do método fit
     return None
 
-def divide_treino_teste(df:pd.Dataframe, val_proporcao_treino:float) -> Tuple[pd.Dataframe,pd.Dataframe]:
+def divide_treino_teste(df:pd.DataFrame, val_proporcao_treino:float) -> Tuple[pd.DataFrame,pd.DataFrame]:
     """
         A partir do DataFrame df, faz a divisão entre treino e teste obedecendo a proporção val_proporcao_treino.
         Essa proporção é um valor de 0 a 1, sendo que 1 representa 100%.
@@ -38,7 +38,7 @@ def divide_treino_teste(df:pd.Dataframe, val_proporcao_treino:float) -> Tuple[pd
 
 
 
-def faz_classificacao(x_treino:pd.DataFram, y_treino:pd.Series, x_teste:pd.Dataframe, y_teste:pd.Series, min_samples_split:float) -> Tupe[List[float],float]:
+def faz_classificacao(x_treino:pd.DataFrame, y_treino:pd.Series, x_teste:pd.DataFrame, y_teste:pd.Series, min_samples_split:float) -> Tupe[List[float],float]:
     """
         Efetua a classificação, retornando:
             - O vetor y_predicted em que, para cada posição i,
