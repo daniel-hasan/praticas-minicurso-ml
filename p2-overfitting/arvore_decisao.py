@@ -2,7 +2,7 @@ from sklearn.tree import DecisionTreeClassifier
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from typing import Tuple
+from typing import Tuple, List
 def cria_modelo(X:pd.DataFrame ,y:pd.Series ,min_samples_split:float):
     """
         Retorna o modelo a ser usado.
@@ -38,7 +38,7 @@ def divide_treino_teste(df:pd.DataFrame, val_proporcao_treino:float) -> Tuple[pd
 
 
 
-def faz_classificacao(x_treino:pd.DataFrame, y_treino:pd.Series, x_teste:pd.DataFrame, y_teste:pd.Series, min_samples_split:float) -> Tupe[List[float],float]:
+def faz_classificacao(x_treino:pd.DataFrame, y_treino:pd.Series, x_teste:pd.DataFrame, y_teste:pd.Series, min_samples_split:float) -> Tuple[List[float],float]:
     """
         Efetua a classificação, retornando:
             - O vetor y_predicted em que, para cada posição i,
