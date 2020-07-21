@@ -55,6 +55,7 @@ class MetodoTest(unittest.TestCase):
         clf_dtree = DecisionTreeClassifier(random_state=1)
         metodo = ScikitLearnAprendizadoDeMaquina(clf_dtree)
         resultado = metodo.eval(Dados.df_treino,Dados.df_teste,"realClass")
+        self.assertListEqual(list(Dados.df_teste["realClass"]),list(resultado.y),"A lista de classe alvo da partição de teste não é a esperada")
         acuracia = resultado.acuracia
         macro_f1 = resultado.macro_f1
         print(f"Macro f1: {macro_f1} Acuracia: {acuracia}")
@@ -177,6 +178,7 @@ class ExperimentoTest(unittest.TestCase):
         exp.calcula_resultados()
 
         for i,macro_f1 in enumerate(arrExpMacroF1):
+            self.assertTrue(type(exp.resultados[i]) == Resultado, "O método calcula_resultados deve retornar uma lista de objetos da classe Resultado e não float.")
             print(f"Fold: {i} Macro F1: {exp.resultados[i].macro_f1}")
             #verifica se o melhor metodo foi usado
 
