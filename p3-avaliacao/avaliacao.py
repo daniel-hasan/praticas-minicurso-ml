@@ -53,14 +53,16 @@ class Experimento():
                 objetivo_otimizacao = self.ClasseObjetivoOtimizacao(fold)
                 study.optimize(None, None)
 
-                #1.(a) obtem o melhor metodo da otimizacao
+                #1.(a) obtem o melhor metodo da otimização
+                #  . use o vetor arr_evaluated_methods e o número do best_trial (study.best_trial.number)
                 best_method = None
                 self.studies_per_fold.append(study)
             else:
                 #caso contrario, o metodo, atributo da classe Experimento (sem modificações) é usado
                 best_method = self.ml_method
 
-            ##2. adiciona em resultados o resultado predito usando o melhor metodo
+            ##2. Efetua a predição nos valores de teste (fold.df_data_to_predict)
+            #logo após, adiciona em resultados o resultado predito (objeto da classe Resultado) usando o melhor metodo
             resultado = None
             self._resultados.append(resultado)
         return self._resultados
