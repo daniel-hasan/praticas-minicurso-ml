@@ -55,6 +55,7 @@ class MetodoTest(unittest.TestCase):
         clf_dtree = DecisionTreeClassifier(random_state=1)
         metodo = ScikitLearnAprendizadoDeMaquina(clf_dtree)
         resultado = metodo.eval(Dados.df_treino,Dados.df_teste,"realClass")
+
         self.assertListEqual(list(Dados.df_teste["realClass"]),list(resultado.y),"A lista de classe alvo da partição de teste não é a esperada")
         acuracia = resultado.acuracia
         macro_f1 = resultado.macro_f1
@@ -101,7 +102,7 @@ class TestFold(unittest.TestCase):
             tester.assertEqual(len(lstTeste),len(df_dados),"Algumas instancias não foram usadas no teste.")
 
     def test_gerar_k_folds(self):
-        k = 4
+        k = 7
         num_repeticoes = 3
 
         #print("DADOS: "+str(len(TestFold.df_dados)))
@@ -110,6 +111,12 @@ class TestFold(unittest.TestCase):
 
         #verifica se foram 4 folds e 3 repetições
         self.assertEqual(k*num_repeticoes,len(folds),"O número de folds criado não é quantidade solicitada")
+
+        #verifica se os dados estao embaralhados
+        arr_lista_fold0 = list(folds[0].df_data_to_predict.index.values)
+        self.assertTrue(arr_lista_fold0!=[0,1,2], "A lista não foi embaralhada!")
+        self.assertListEqual(arr_lista_fold0,[14, 13, 17], "A lista não foi embaralhada corretamente! Não esqueça de usar a seed=seed+num_repeticoes")
+        #verifica se os dados foram divididos corretamente
 
         #testa cada repetição separadamente
         for repeticao_i in range(num_repeticoes):
