@@ -172,7 +172,7 @@ class ExperimentoTest(unittest.TestCase):
         exp = self.get_experimento()
 
         print("Macro F1 médio:"+str(exp.macro_f1_avg))
-        self.assertAlmostEqual(exp.macro_f1_avg,0.3136507936507936,msg="Valor inesperado de Macro F1")
+        self.assertAlmostEqual(exp.macro_f1_avg, 0.39380952380952383, msg="Valor inesperado de Macro F1")
 
 
     def test_resultados(self):
@@ -180,8 +180,8 @@ class ExperimentoTest(unittest.TestCase):
         exp = self.get_experimento()
         fold = exp.folds[0]
 
-        arrExpMacroF1 =[0.3333333333333333,0.35555555555555557,
-                        0.38888888888888884,0.3,0.1904761904761905]
+        arrExpMacroF1 =[0.16666666666666666,0.4444444444444444,
+                        0.48888888888888893,0.6190476190476191, 0.24999999999999997]
         exp.calcula_resultados()
 
         for i,macro_f1 in enumerate(arrExpMacroF1):
