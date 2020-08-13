@@ -1,5 +1,5 @@
 from base_am.avaliacao import OtimizacaoObjetivo
-from base_am.metodo import MetodoAprendizadoDeMaquina, ScikitLearnAprendizadoDeMaquina
+from base_am.metodo import MetodoAprendizadoDeMaquina
 from base_am.resultado import Fold, Resultado
 from competicao_am.metodo_competicao import MetodoCompeticao
 import optuna

@@ -15,8 +15,8 @@ def gerar_saida_teste( df_data_to_predict, col_classe, num_grupo):
     df_treino = pd.read_csv("datasets/movies_amostra.csv")
 
     #gera as representações e seu resultado
-    arr_predictions_ator, y_to_predict = ml_method.eval_actors(df_treino, df_data_to_predict, col_classe)
-    arr_predictions_bow, y_to_predict = ml_method.eval_bow(df_treino, df_data_to_predict, col_classe)
+    y_to_predict, arr_predictions_ator = ml_method.eval_actors(df_treino, df_data_to_predict, col_classe)
+    y_to_predict, arr_predictions_bow = ml_method.eval_bow(df_treino, df_data_to_predict, col_classe)
     
     #combina as duas
     arr_final_predictions = ml_method.combine_predictions(arr_predictions_ator, arr_predictions_bow)

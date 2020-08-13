@@ -8,7 +8,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 
 from .resultado import Fold,Resultado
-from .metodo import MetodoAprendizadoDeMaquina,ScikitLearnAprendizadoDeMaquina
+from .metodo import MetodoAprendizadoDeMaquina
 
 class Experimento():
     def __init__(self,folds:List[Fold], ml_method:MetodoAprendizadoDeMaquina,
